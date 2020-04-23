@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Estudiante } from '../models/estudiante';
-import { EstudianteService } from '../services/estudiante.service';
-import { UtilService } from '../services/utils/util.service';
-
+import { Estudiante } from '../../models/estudiante';
+import { EstudianteService } from '../../services/estudiante.service';
+import { UtilService } from '../../services/utils/util.service';
+ 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-new-student',
+  templateUrl: './new-student.page.html',
+  styleUrls: ['./new-student.page.scss'],
 })
-export class Tab1Page {
+export class NewStudentPage implements OnInit {
 
   public myForm: FormGroup;
   public student: Estudiante;
 
-  constructor(private serviceStudent: EstudianteService, private fb: FormBuilder, private utils: UtilService) {
+  constructor(private serviceStudent: EstudianteService, private fb: FormBuilder, private utils: UtilService) { }
+
+  ngOnInit() {
     this.myForm = this.fb.group({
       name: ['', Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(150)])],
       controlNumber: ['', Validators.compose([Validators.required, Validators.pattern('[0-9]{10}')])],
