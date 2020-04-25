@@ -34,11 +34,11 @@ export class LoginPage implements OnInit {
             find = true;
           }
       });
-    });
 
-    if (!find) {
-      this.signIn(true);
-    }
+      if (!find) {
+        this.signIn(true);
+      }
+    });
   }
 
   signIn(err: boolean) {
