@@ -25,17 +25,17 @@ export class LoginPage implements OnInit {
   findUser() {
     const email = this.myForm.controls.email.value;
     const password = this.myForm.controls.password.value;
-    let find = false;
+    let found = false;
 
     this.users.getUsers().subscribe(data => {
       data.map(e => {
           if (email === e.payload.doc.get('email') && password === e.payload.doc.get('password')) {
             this.signIn(false);
-            find = true;
+            found = true;
           }
       });
 
-      if (!find) {
+      if (!found) {
         this.signIn(true);
       }
     });
