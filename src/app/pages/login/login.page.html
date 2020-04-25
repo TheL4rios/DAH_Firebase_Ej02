@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-align-items-center">login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myForm">
+    <ion-item>
+      <ion-label position="floating">Correo:</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña:</ion-label>
+      <ion-input type="text" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-button (click)="findUser()" expand="block" fill="clear" shape="round">
+      Iniciar Sesión
+    </ion-button>
+  </form>
+</ion-content>
