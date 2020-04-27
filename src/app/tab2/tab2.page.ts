@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EstudianteService } from '../services/estudiante.service';
 import { Estudiante } from '../models/estudiante';
+import { UtilService } from '../services/utils/util.service';
 
 @Component({
   selector: 'app-tab2',
@@ -11,7 +12,7 @@ export class Tab2Page {
 
   public students: Estudiante[];
 
-  constructor(private service: EstudianteService) {
+  constructor(private service: EstudianteService, public utils: UtilService) {
     this.service.getSudent().subscribe(data => {
       this.students = data.map(e => {
         return {
@@ -25,5 +26,4 @@ export class Tab2Page {
       });
     });
   }
-
 }

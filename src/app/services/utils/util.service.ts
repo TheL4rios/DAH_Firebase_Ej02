@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
+import { Estudiante } from 'src/app/models/estudiante';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,11 @@ export class UtilService {
       duration: 2000
     });
     toast.present();
+  }
+
+  showDetails(student: Estudiante) {
+    const details = 'Curp: ' + student.curp + '\n\r' +
+                    'Edad: ' + student.age;
+    this.showMessageAlert('Detalles del estudiante', details);
   }
 }
