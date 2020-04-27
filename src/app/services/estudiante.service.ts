@@ -7,6 +7,8 @@ import { Estudiante } from '../models/estudiante';
 })
 export class EstudianteService {
 
+  students: Estudiante[];
+
   constructor(private firestore: AngularFirestore) { }
 
   createStudent(student: Estudiante) {
